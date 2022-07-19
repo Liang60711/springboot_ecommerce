@@ -1,17 +1,33 @@
 package com.ricoliang.springboot_ecommerce.model;
 
+import com.ricoliang.springboot_ecommerce.constant.ProductCategory;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "product")
 public class Product {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id")
     private Integer productId;
+    @Column(name = "product_name")
     private String productName;
-    private String category;
+    @Column(name = "category")
+    private ProductCategory category;
+    @Column(name = "image_url")
     private String imageUrl;
+    @Column(name = "price")
     private Integer price;
+    @Column(name = "stock")
     private Integer stock;
+    @Column(name = "description")
     private String description;
+    @Column(name = "created_date")
     private Date createdDate;
+    @Column(name = "last_modified_date")
     private Date lastModifiedDate;
 
     public Integer getProductId() {
@@ -30,11 +46,11 @@ public class Product {
         this.productName = productName;
     }
 
-    public String getCategory() {
+    public ProductCategory getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(ProductCategory category) {
         this.category = category;
     }
 

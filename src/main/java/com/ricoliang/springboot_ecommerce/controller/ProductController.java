@@ -16,10 +16,28 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    /**
+     * JDBC
+     */
     @GetMapping("/products/{productId}")
     public ResponseEntity<Product> getProduct(@PathVariable Integer productId) {
 
         Product product = productService.getProductById(productId);
+
+        if (product != null ) {
+            return ResponseEntity.status(HttpStatus.OK).body(product);
+        }else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
+    /**
+     * JPA
+     */
+    @GetMapping("/jpa/products/{productId}")
+    public ResponseEntity<Product> getProductJpa(@PathVariable Integer productId) {
+
+        Product product = productService.getProductByIdJpa(productId);
 
         if (product != null ) {
             return ResponseEntity.status(HttpStatus.OK).body(product);

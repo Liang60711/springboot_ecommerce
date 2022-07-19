@@ -63,7 +63,6 @@ public class ProductDaoImpl implements ProductDao {
         return productId;
     }
 
-
     @Override
     public void updateProduct(Integer productId, ProductRequest productRequest) {
         String sql = "UPDATE product SET product_name = :product_name, category = :category, image_url = :image_url, price = :price, stock = :stock, description = :description, last_modified_date = :last_modified_date" +
@@ -80,6 +79,15 @@ public class ProductDaoImpl implements ProductDao {
 
         Date now = new Date();
         map.put("last_modified_date", now);
+
+        namedParameterJdbcTemplate.update(sql, map);
+    }
+
+    @Override
+    public void deleteProductById(Integer productId) {
+        String sql = "DELETE FROM product WHERE product_id = :product_id";
+        Map<String, Object> map = new HashMap<>();
+        map.put("product_id", productId);
 
         namedParameterJdbcTemplate.update(sql, map);
     }

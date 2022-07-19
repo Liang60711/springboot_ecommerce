@@ -33,6 +33,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public void deleteProductById(Integer productId) {
+        productDao.deleteProductById(productId);
+    }
+
+    @Override
     public Product getProductByIdJpa(Integer productId) {
         Product product = productRepository.findById(productId).orElse(null);
         return product;

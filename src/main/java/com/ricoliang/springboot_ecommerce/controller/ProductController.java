@@ -39,7 +39,7 @@ public class ProductController {
         Integer productId = productService.createProduct(productRequest);
         Product product = productService.getProductById(productId);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(product);
+        return ResponseEntity.status(HttpStatus.CREATED).body(product); // status code 201
     }
 
     /**
@@ -61,6 +61,15 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(updateProduct);
     }
 
+    /**
+     * 刪除商品
+     */
+    @DeleteMapping("/products/{productId}")
+    public ResponseEntity<?> deleteProduct(@PathVariable Integer productId) {
+        productService.deleteProductById(productId);
+
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();// status code 204
+    }
 
     /**
      * JPA

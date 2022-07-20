@@ -6,6 +6,9 @@ import com.ricoliang.springboot_ecommerce.dto.ProductRequest;
 import com.ricoliang.springboot_ecommerce.model.Product;
 import com.ricoliang.springboot_ecommerce.service.ProductService;
 import com.ricoliang.springboot_ecommerce.util.Page;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +30,7 @@ public class ProductController {
     /**
      * 查詢商品列表
      */
+    @ApiOperation("查詢商品列表")
     @GetMapping("/products")
     public ResponseEntity<Page<Product>> getProducts(
             // 查詢條件
@@ -70,6 +74,7 @@ public class ProductController {
     /**
      * 查詢商品
      */
+    @ApiOperation("查詢商品")
     @GetMapping("/products/{productId}")
     public ResponseEntity<Product> getProduct(@PathVariable Integer productId) {
 
@@ -85,6 +90,7 @@ public class ProductController {
     /**
      * 新增商品
      */
+    @ApiOperation("新增商品")
     @PostMapping("/products")
     public ResponseEntity<Product> createProduct(@RequestBody @Valid ProductRequest productRequest) {
         Integer productId = productService.createProduct(productRequest);
@@ -96,6 +102,7 @@ public class ProductController {
     /**
      * 修改商品
      */
+    @ApiOperation("修改商品")
     @PutMapping("/products/{productId}")
     public ResponseEntity<Product> updateProduct(@PathVariable Integer productId,
                                                  @RequestBody @Valid ProductRequest productRequest) {
@@ -115,6 +122,7 @@ public class ProductController {
     /**
      * 刪除商品
      */
+    @ApiOperation("刪除商品")
     @DeleteMapping("/products/{productId}")
     public ResponseEntity<?> deleteProduct(@PathVariable Integer productId) {
         productService.deleteProductById(productId);
@@ -125,6 +133,7 @@ public class ProductController {
     /**
      * JPA
      */
+    @ApiOperation("查詢商品JPA")
     @GetMapping("/jpa/products/{productId}")
     public ResponseEntity<Product> getProductJpa(@PathVariable Integer productId) {
 

@@ -1,6 +1,8 @@
 package com.ricoliang.springboot_ecommerce.controller;
 
-import com.ricoliang.springboot_ecommerce.request.ProductRequest;
+import com.ricoliang.springboot_ecommerce.constant.ProductCategory;
+import com.ricoliang.springboot_ecommerce.dto.ProductQueryParams;
+import com.ricoliang.springboot_ecommerce.dto.ProductRequest;
 import com.ricoliang.springboot_ecommerce.model.Product;
 import com.ricoliang.springboot_ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +11,37 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 public class ProductController {
 
     @Autowired
     private ProductService productService;
+
+    /**
+     * 查詢商品列表
+     */
+    @GetMapping("/products")
+    public ResponseEntity<List<Product>> getProducts(
+            // 查詢條件
+            @RequestParam(required = false) ProductCategory category,
+            @RequestParam(required = false) String search,
+            // 排序
+            @RequestParam(defaultValue = "created_date") String orderBy,
+            @RequestParam(defaultValue = "desc") String sort
+    ) {
+        // 使用此class將多筆參數傳入至dao層，方便維護
+        ProductQueryParams productQueryParams = new ProductQueryParams();
+        productQueryParams.setCategory(category);
+        productQueryParams.setSearch(search);
+        productQueryParams.setOrderBy(orderBy);
+        productQueryParams.setSort(sort);
+
+        List<Product> productList = productService.getProducts(productQueryParams);
+
+        return ResponseEntity.status(HttpStatus.OK).body(productList);
+    }
 
     /**
      * 查詢商品

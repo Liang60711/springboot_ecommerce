@@ -29,7 +29,7 @@ public class ProductDaoImpl implements ProductDao {
                 "WHERE 1=1";
         Map<String, Object> map = new HashMap<>();
 
-        // 條件
+        // 查詢條件
         if (productQueryParams.getCategory() != null) {
             sql += " AND category = :category";
             map.put("category", productQueryParams.getCategory().name());// 取enum字串
@@ -41,6 +41,11 @@ public class ProductDaoImpl implements ProductDao {
 
         // 排序
         sql += " ORDER BY " + productQueryParams.getOrderBy() + " " + productQueryParams.getSort();
+
+        // 分頁
+        sql += " LIMIT :limit OFFSET :offset";
+        map.put("limit", productQueryParams.getLimit());
+        map.put("offset", productQueryParams.getOffset());
 
         List<Product> productList = namedParameterJdbcTemplate.query(sql, map, new ProductRowMapper());
 

@@ -1,5 +1,6 @@
 package com.ricoliang.springboot_ecommerce.dao.impl;
 
+import com.ricoliang.springboot_ecommerce.constant.ProductCategory;
 import com.ricoliang.springboot_ecommerce.dao.ProductDao;
 import com.ricoliang.springboot_ecommerce.dto.ProductQueryParams;
 import com.ricoliang.springboot_ecommerce.dto.ProductRequest;
@@ -30,14 +31,7 @@ public class ProductDaoImpl implements ProductDao {
         Map<String, Object> map = new HashMap<>();
 
         // 查詢條件
-        if (productQueryParams.getCategory() != null) {
-            sql += " AND category = :category";
-            map.put("category", productQueryParams.getCategory().name());// 取enum字串
-        }
-        if (productQueryParams.getSearch() != null) {
-            sql += " AND product_name LIKE :search ";
-            map.put("search", "%" + productQueryParams.getSearch() + "%");
-        }
+        sql = addFilterSql(sql, map, productQueryParams);
 
         // 排序
         sql += " ORDER BY " + productQueryParams.getOrderBy() + " " + productQueryParams.getSort();
@@ -58,15 +52,9 @@ public class ProductDaoImpl implements ProductDao {
         Map<String, Object> map = new HashMap<>();
 
         // 查詢條件
-        if (productQueryParams.getCategory() != null) {
-            sql += " AND category = :category";
-            map.put("category", productQueryParams.getCategory().name());// 取enum字串
-        }
-        if (productQueryParams.getSearch() != null) {
-            sql += " AND product_name LIKE :search ";
-            map.put("search", "%" + productQueryParams.getSearch() + "%");
-        }
+        sql = addFilterSql(sql, map, productQueryParams);
 
+        // 獲取資料筆數
         Integer total = namedParameterJdbcTemplate.queryForObject(sql, map, Integer.class);
 
         return total;
@@ -141,4 +129,18 @@ public class ProductDaoImpl implements ProductDao {
 
         namedParameterJdbcTemplate.update(sql, map);
     }
+
+    private String addFilterSql(String sql, Map<String, Object> map, ProductQueryParams productQueryParams){
+        // 查詢條件
+        if (productQueryParams.getCategory() != null) {
+            sql += " AND category = :category";
+            map.put("category", productQueryParams.getCategory().name());// 取enum字串
+        }
+        if (productQueryParams.getSearch() != null) {
+            sql += " AND product_name LIKE :search ";
+            map.put("search", "%" + productQueryParams.getSearch() + "%");
+        }
+
+        return sql;
+    };
 }

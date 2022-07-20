@@ -61,6 +61,7 @@ public class ProductController {
         page.setLimit(limit);
         page.setOffset(offset);
         page.setTotal(total);
+//        page.setTotal(productList.size());
         page.setResults(productList);
 
         return ResponseEntity.status(HttpStatus.OK).body(page);

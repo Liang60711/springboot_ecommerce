@@ -2,6 +2,9 @@ package com.ricoliang.springboot_ecommerce.dto;
 
 import com.ricoliang.springboot_ecommerce.constant.ProductCategory;
 
+/**
+ * 此類用來將參數整合成一個類，方便當作參數傳遞(controller -> dao)，方便未來維護
+ */
 public class ProductQueryParams {
 
     private ProductCategory category;

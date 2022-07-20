@@ -4,6 +4,9 @@ import com.ricoliang.springboot_ecommerce.constant.ProductCategory;
 
 import javax.validation.constraints.NotNull;
 
+/**
+ * 對前端傳進來的商品相關 API，進行 validation
+ */
 public class ProductRequest {
 
     @NotNull
@@ -17,7 +20,6 @@ public class ProductRequest {
     @NotNull
     private Integer stock;
     private String description;
-
 
 
     public String getProductName() {

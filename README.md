@@ -2,7 +2,7 @@
 
 ## API
 
-![image](https://user-images.githubusercontent.com/63166397/180080180-4b14d0ba-ff2b-4451-a66b-4ca69163cee5.png)
+![image](https://user-images.githubusercontent.com/63166397/180322619-c3bdfa2c-8139-4cf9-973e-3cf65e605332.png)
 
 
 

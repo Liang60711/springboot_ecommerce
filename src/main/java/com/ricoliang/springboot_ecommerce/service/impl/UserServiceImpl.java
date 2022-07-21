@@ -13,10 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
-import org.springframework.util.DigestUtils;
 import org.springframework.web.server.ResponseStatusException;
-
-import java.nio.charset.StandardCharsets;
 
 @Component
 public class UserServiceImpl implements UserService {

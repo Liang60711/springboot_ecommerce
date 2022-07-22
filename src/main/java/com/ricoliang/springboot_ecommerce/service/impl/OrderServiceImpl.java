@@ -36,6 +36,11 @@ public class OrderServiceImpl implements OrderService {
     private UserDao userDao;
 
     @Override
+    public Integer countOrder(OrderQueryParams orderQueryParams) {
+        return orderDao.countOrder(orderQueryParams);
+    }
+
+    @Override
     public List<Order> getOrders(OrderQueryParams orderQueryParams) {
         List<Order> orderList = orderDao.getOrders(orderQueryParams);
 
@@ -47,8 +52,15 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Integer countOrder(OrderQueryParams orderQueryParams) {
-        return orderDao.countOrder(orderQueryParams);
+    public Order getOrderById(Integer orderId) {
+
+        Order order = orderDao.getOrderById(orderId);
+
+        List<OrderItem> orderItemList = orderDao.getOrderItemsByOrderId(orderId);
+
+        order.setOrderItemList(orderItemList);
+
+        return order;
     }
 
     @Transactional
@@ -100,15 +112,5 @@ public class OrderServiceImpl implements OrderService {
         return orderId;
     }
 
-    @Override
-    public Order getOrderById(Integer orderId) {
 
-        Order order = orderDao.getOrderById(orderId);
-
-        List<OrderItem> orderItemList = orderDao.getOrderItemsByOrderId(orderId);
-
-        order.setOrderItemList(orderItemList);
-
-        return order;
-    }
 }

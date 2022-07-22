@@ -23,6 +23,9 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    /**
+     * 取得訂單列表
+     */
     @GetMapping("/users/{userId}/orders")
     public ResponseEntity<Page<Order>> getOrders(
             @PathVariable Integer userId,
@@ -50,9 +53,14 @@ public class OrderController {
 
     }
 
+    /**
+     * 建立訂單
+     */
     @PostMapping("/users/{userId}/orders")
-    public ResponseEntity<?> createOrder(@PathVariable Integer userId,
-                                         @RequestBody @Valid CreateOrderRequest createOrderRequest) {
+    public ResponseEntity<?> createOrder(
+            @PathVariable Integer userId,
+            @RequestBody @Valid CreateOrderRequest createOrderRequest
+    ) {
 
         Integer orderId = orderService.createOrder(userId, createOrderRequest);
 

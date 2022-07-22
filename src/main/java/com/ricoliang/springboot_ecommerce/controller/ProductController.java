@@ -50,8 +50,6 @@ public class ProductController {
         productQueryParams.setLimit(limit);
         productQueryParams.setOffset(offset);
 
-
-
         // 使用util.Page這個類，修改返回給前端的格式
 
         // 1.取得 total 總筆數
@@ -63,7 +61,6 @@ public class ProductController {
         page.setLimit(limit);
         page.setOffset(offset);
         page.setTotal(total);
-//        page.setTotal(productList.size());
         page.setResults(productList);
 
         return ResponseEntity.status(HttpStatus.OK).body(page);
@@ -102,8 +99,10 @@ public class ProductController {
      */
     @ApiOperation("修改商品")
     @PutMapping("/products/{productId}")
-    public ResponseEntity<Product> updateProduct(@PathVariable Integer productId,
-                                                 @RequestBody @Valid ProductRequest productRequest) {
+    public ResponseEntity<Product> updateProduct(
+            @PathVariable Integer productId,
+            @RequestBody @Valid ProductRequest productRequest
+    ) {
 
         // 檢查id是否存在
         Product product = productService.getProductById(productId);

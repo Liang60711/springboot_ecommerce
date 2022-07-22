@@ -1,7 +1,7 @@
 package com.ricoliang.springboot_ecommerce.dto;
 
 /**
- * 此類用來將參數整合成一個類，方便當作參數傳遞(controller -> dao)，方便未來維護
+ * 此類用來當作參數傳遞(controller -> dao)
  */
 public class OrderQueryParams {
 

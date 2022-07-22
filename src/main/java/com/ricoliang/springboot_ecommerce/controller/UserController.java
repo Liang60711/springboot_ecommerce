@@ -21,7 +21,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
+    /**
+     * 註冊
+     * @param userRegisterRequest
+     * @return
+     */
     @PostMapping("/users/register")
     public ResponseEntity<User> register(@RequestBody @Valid UserRegisterRequest userRegisterRequest) {
 
@@ -33,6 +37,11 @@ public class UserController {
 
     }
 
+    /**
+     * 登入
+     * @param userLoginRequest
+     * @return
+     */
     @PostMapping("/users/login")
     public ResponseEntity<User> login(@RequestBody @Valid UserLoginRequest userLoginRequest) {
 

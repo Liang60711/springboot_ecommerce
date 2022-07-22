@@ -1,4 +1,4 @@
-package com.ricoliang.springboot_ecommerce.dto;
+package com.ricoliang.springboot_ecommerce.dto.request;
 
 import com.ricoliang.springboot_ecommerce.constant.ProductCategory;
 

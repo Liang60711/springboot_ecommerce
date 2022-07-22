@@ -1,7 +1,7 @@
 package com.ricoliang.springboot_ecommerce.dao.impl;
 
 import com.ricoliang.springboot_ecommerce.dao.UserDao;
-import com.ricoliang.springboot_ecommerce.dto.UserRegisterRequest;
+import com.ricoliang.springboot_ecommerce.dto.request.UserRegisterRequest;
 import com.ricoliang.springboot_ecommerce.model.User;
 import com.ricoliang.springboot_ecommerce.rowMapper.UserRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,20 +1,16 @@
-package com.ricoliang.springboot_ecommerce.dto;
-
-import org.springframework.lang.Nullable;
+package com.ricoliang.springboot_ecommerce.dto.request;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-public class UserRegisterRequest {
+public class UserLoginRequest {
 
     @NotBlank
     @Email
     private String email;
+
     @NotBlank
     private String password;
-
-    @Nullable
-    private String salt;
 
     public String getEmail() {
         return email;
@@ -30,13 +26,5 @@ public class UserRegisterRequest {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
     }
 }

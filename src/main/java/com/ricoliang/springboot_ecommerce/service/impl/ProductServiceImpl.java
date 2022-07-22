@@ -4,7 +4,7 @@ import com.ricoliang.springboot_ecommerce.dao.ProductDao;
 import com.ricoliang.springboot_ecommerce.dto.ProductQueryParams;
 import com.ricoliang.springboot_ecommerce.model.Product;
 import com.ricoliang.springboot_ecommerce.repository.ProductRepository;
-import com.ricoliang.springboot_ecommerce.dto.ProductRequest;
+import com.ricoliang.springboot_ecommerce.dto.request.ProductRequest;
 import com.ricoliang.springboot_ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

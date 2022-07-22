@@ -1,9 +1,8 @@
 package com.ricoliang.springboot_ecommerce.dao;
 
-import com.ricoliang.springboot_ecommerce.constant.ProductCategory;
 import com.ricoliang.springboot_ecommerce.dto.ProductQueryParams;
 import com.ricoliang.springboot_ecommerce.model.Product;
-import com.ricoliang.springboot_ecommerce.dto.ProductRequest;
+import com.ricoliang.springboot_ecommerce.dto.request.ProductRequest;
 
 import java.util.List;
 

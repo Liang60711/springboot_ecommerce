@@ -2,7 +2,7 @@ package com.ricoliang.springboot_ecommerce.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ricoliang.springboot_ecommerce.constant.ProductCategory;
-import com.ricoliang.springboot_ecommerce.dto.ProductRequest;
+import com.ricoliang.springboot_ecommerce.dto.request.ProductRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

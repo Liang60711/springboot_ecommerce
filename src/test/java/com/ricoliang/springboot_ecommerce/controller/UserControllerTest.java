@@ -2,8 +2,8 @@ package com.ricoliang.springboot_ecommerce.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ricoliang.springboot_ecommerce.dao.UserDao;
-import com.ricoliang.springboot_ecommerce.dto.UserLoginRequest;
-import com.ricoliang.springboot_ecommerce.dto.UserRegisterRequest;
+import com.ricoliang.springboot_ecommerce.dto.request.UserLoginRequest;
+import com.ricoliang.springboot_ecommerce.dto.request.UserRegisterRequest;
 import com.ricoliang.springboot_ecommerce.model.User;
 import com.ricoliang.springboot_ecommerce.service.UserService;
 import org.junit.jupiter.api.Test;

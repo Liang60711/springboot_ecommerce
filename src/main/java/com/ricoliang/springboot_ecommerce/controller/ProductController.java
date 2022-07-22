@@ -2,13 +2,11 @@ package com.ricoliang.springboot_ecommerce.controller;
 
 import com.ricoliang.springboot_ecommerce.constant.ProductCategory;
 import com.ricoliang.springboot_ecommerce.dto.ProductQueryParams;
-import com.ricoliang.springboot_ecommerce.dto.ProductRequest;
+import com.ricoliang.springboot_ecommerce.dto.request.ProductRequest;
 import com.ricoliang.springboot_ecommerce.model.Product;
 import com.ricoliang.springboot_ecommerce.service.ProductService;
 import com.ricoliang.springboot_ecommerce.util.Page;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -18,7 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 @Component
 public class UserServiceImpl implements UserService {
 
-    private final  static Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
+    private final static Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
     private UserDao userDao;

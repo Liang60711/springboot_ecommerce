@@ -3,7 +3,7 @@ package com.ricoliang.springboot_ecommerce.util;
 import java.util.List;
 
 /**
- * 定義 getProducts API 的回傳方式
+ * 定義回傳給前端的分頁內容
  * @param <T>
  */
 public class Page<T> {

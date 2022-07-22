@@ -1,4 +1,4 @@
-## Springboot E-commerce Demo 
+# Springboot E-commerce Demo 
 
 ## Description
 實作電商網站，包含基礎的商品、訂單、登入功能，並對每個 API 做單元測試，目前尚在擴充其他功能。

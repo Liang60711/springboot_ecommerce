@@ -1,7 +1,7 @@
 ## Springboot E-commerce Demo 
 
 ## Description
-使用 spring boot 實作電商網站，包含基礎的商品、訂單、登入功能，並對每個 API 做單元測試，目前尚在擴充其他功能。
+實作電商網站，包含基礎的商品、訂單、登入功能，並對每個 API 做單元測試，目前尚在擴充其他功能。
 
 ## API Categories
 * 商品 crud
@@ -13,7 +13,7 @@
 
 ## Dependencies
 * h2
-* commons-text
+* mockito
 * springfox-swagger2
 
 ## Environment Version

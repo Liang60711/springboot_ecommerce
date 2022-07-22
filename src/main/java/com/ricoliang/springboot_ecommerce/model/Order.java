@@ -1,6 +1,7 @@
 package com.ricoliang.springboot_ecommerce.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Order {
 
@@ -9,6 +10,16 @@ public class Order {
     private Integer totalAmount;
     private Date createdData;
     private Date lastModifiedDate;
+
+    public List<OrderItem> getOrderItemList() {
+        return orderItemList;
+    }
+
+    public void setOrderItemList(List<OrderItem> orderItemList) {
+        this.orderItemList = orderItemList;
+    }
+
+    private List<OrderItem> orderItemList;
 
     public Integer getOrderId() {
         return orderId;

@@ -4,6 +4,7 @@ import com.ricoliang.springboot_ecommerce.dao.OrderDao;
 import com.ricoliang.springboot_ecommerce.dao.ProductDao;
 import com.ricoliang.springboot_ecommerce.dto.BuyItem;
 import com.ricoliang.springboot_ecommerce.dto.request.CreateOrderRequest;
+import com.ricoliang.springboot_ecommerce.model.Order;
 import com.ricoliang.springboot_ecommerce.model.OrderItem;
 import com.ricoliang.springboot_ecommerce.model.Product;
 import com.ricoliang.springboot_ecommerce.service.OrderService;
@@ -50,5 +51,17 @@ public class OrderServiceImpl implements OrderService {
         orderDao.createOrderItems(orderId, orderItemList);
 
         return orderId;
+    }
+
+    @Override
+    public Order getOrderById(Integer orderId) {
+
+        Order order = orderDao.getOrderById(orderId);
+
+        List<OrderItem> orderItemList = orderDao.getOrderItemsByOrderId(orderId);
+
+        order.setOrderItemList(orderItemList);
+
+        return order;
     }
 }
